@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random Quote Generator</title>
+  </head>
+  <body>
+    <h1>Random Quote Generator</h1>
+    <p id="quote"></p>
+    <button id="generate-btn">Generate Quote</button>
+
+    <script>
+      // Define an array of quotes
+      const quotes = [
+        "The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela",
+        "The way to get started is to quit talking and begin doing. -Walt Disney",
+        "If life were predictable it would cease to be life, and be without flavor. -Eleanor Roosevelt",
+        "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough. -Oprah Winfrey",
+        "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success. -James Cameron",
+        "Life is what happens when you're busy making other plans. -John Lennon"
+      ];
+
+      // Get a random quote from the array
+      function getRandomQuote() {
+        const index = Math.floor(Math.random() * quotes.length);
+        return quotes[index];
+      }
+
+      // Display the quote on the webpage
+      function displayQuote() {
+        const quoteElem = document.getElementById("quote");
+        quoteElem.textContent = getRandomQuote();
+      }
+
+      // Add an event listener to the button
+      const generateBtn = document.getElementById("generate-btn");
+      generateBtn.addEventListener("click", displayQuote);
+    </script>
+  </body>
+</html>
