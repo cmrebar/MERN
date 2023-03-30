@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-const PersonForm = () => {
+const PersonForm = (props) => {
+    const { person, setPerson } = props;
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/people', {
+        axios.post('http://localhost:8000/api/person', {
             firstName,
             lastName
         })
         .then(res => {
             console.log(res);
             console.log(res.data);
+            setPerson([...person, res.data]);
         })
         .catch(err => console.log(err));
     }
